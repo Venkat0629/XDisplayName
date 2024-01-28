@@ -6,6 +6,7 @@ function App() {
   const [showFullName, setShowFullName] = useState(false);
 
   const handleInputChange = (e) => {
+    if (showFullName) setShowFullName(false);
     const { id, value } = e.target;
     setUser((prevUser) => ({
       ...prevUser,
@@ -46,12 +47,12 @@ function App() {
         />
         <br />
         <button type="submit">Submit</button>
-        {showFullName && (
-          <p>
-            Full Name: {user.firstName} {user.lastName}
-          </p>
-        )}
       </form>
+      {showFullName && (
+        <p>
+          Full Name: {user.firstName} {user.lastName}
+        </p>
+      )}
     </div>
   );
 }
