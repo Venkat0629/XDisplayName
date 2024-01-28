@@ -7,7 +7,11 @@ function App() {
 
   const displayName = (e) => {
     e.preventDefault();
-    if (user.fName && user.lName) setShow(true);
+    if (user.fName && user.lName) {
+      setShow(true);
+    } else {
+      alert("Please fill out this field");
+    }
   };
 
   const handleChange = (e) => {
@@ -24,8 +28,10 @@ function App() {
         <h1>Full Name Display</h1>
         <label>First Name:</label>
         <input id="fName" onChange={handleChange}></input>
+        <br />
         <label>Last Name:</label>
         <input id="lName" onChange={handleChange}></input>
+        <br />
         <button>Submit</button>
         {show && <p>Full Name: {`${user.fName} ${user.lName}`}</p>}
       </form>
