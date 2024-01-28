@@ -7,7 +7,7 @@ function App() {
 
   const displayName = (e) => {
     e.preventDefault();
-    setShow(true);
+    if (user.fName && user.lName) setShow(true);
   };
 
   const handleChange = (e) => {
