@@ -15,9 +15,12 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (user.firstName.trim() !== "" && user.lastName.trim() !== "") {
+    if (user.firstName !== "" && user.lastName !== "") {
       setShowFullName(true);
-    } 
+    } else {
+      setShowFullName(false);
+      alert("Please fill out both first name and last name fields.");
+    }
   };
 
   return (
@@ -44,7 +47,9 @@ function App() {
         <br />
         <button type="submit">Submit</button>
         {showFullName && (
-          <p>Full Name: {user.firstName} {user.lastName}</p>
+          <p>
+            Full Name: {user.firstName} {user.lastName}
+          </p>
         )}
       </form>
     </div>
